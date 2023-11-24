@@ -1,0 +1,20 @@
+.SubHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: beige;
+  p {
+    margin-right: 10px;
+  }
+  nav {
+    display: flex;
+    .link {
+      margin-right: 20px;
+      text-decoration: none;
+      color: black;
+    }
+    .link:hover {
+        background-color: blueviolet;
+    }
+  }
+}
