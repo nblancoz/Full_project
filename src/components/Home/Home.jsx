@@ -1,21 +1,41 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { ProductContext } from "../../context/ProductContext/ProductState";
 import "./Home.scss";
+import { Link } from "react-router-dom";
 
-const Home = () => {
+const Products = () => {
+  const { products, getProducts } = useContext(ProductContext);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
-    <div className="home">
-      <p>hola este es home</p>
-      <p>Hi, welcome to "name", a e-commerce made with react.</p>
-      <p>
-        Here you can find a lot of soccer products, such as shirts, cleats,
-        socks, etc.
-      </p>
-      <p>
-        For more info you can click in "Products" to find all the available
-        products.
-      </p>
+    <div className="container">
+      <section className="sort">
+        <Link>
+          <span>Order Low-High</span>
+        </Link>
+        <Link>
+          <span>Order High-Low</span>
+        </Link>
+      </section>
+      <div className="products">
+        {products.map((product) => {
+          return (
+            <section className="cardContainer">
+              <div className="card" key={product.id}>
+                <img src={product.img} alt="" />
+                <h2>{product.name}</h2>
+                <h3>{product.description}</h3>
+                <h3>{product.price}€</h3>
+              </div>
+            </section>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-export default Home;
+export default Products;

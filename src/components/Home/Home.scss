@@ -1,9 +1,39 @@
-.home {
+.products {
   display: flex;
-  text-align: justify;
-  text-align: center;
-  background-color: grey;
-  color: white;
+  flex-wrap: wrap;
+}
+.container {
   height: 100vh;
-  flex-direction: column;
+}
+
+.cardContainer {
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  box-sizing: border-box;
+  width: 300px;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
 }
