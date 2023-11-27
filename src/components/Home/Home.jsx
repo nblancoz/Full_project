@@ -29,7 +29,7 @@ const Products = () => {
                 <h2>{product.name}</h2>
                 <h3>{product.description}</h3>
                 <h3>{product.price}€</h3>
-                <button>Add to cart:</button>
+                <button>Add to cart</button>
               </div>
             </section>
           );
