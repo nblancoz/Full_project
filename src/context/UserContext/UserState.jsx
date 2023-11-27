@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UserReducer, initialState);
 
   const login = async (user) => {
-    const res = await axios.post(API_URL + "/users/login");
+    const res = await axios.post(API_URL + "/users/login",user);
     dispatch({
       type: "LOGIN",
       payload: res.data,
