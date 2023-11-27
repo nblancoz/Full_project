@@ -8,6 +8,7 @@ import { ProductProvider } from "./context/ProductContext/ProductState";
 import { UserProvider } from "./context/UserContext/UserState";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
             </Routes>
+            <Footer />
           </BrowserRouter>
         </ProductProvider>
       </UserProvider>
