@@ -1,14 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext/UserState";
 
 const Header = () => {
+  const { token, logout } = useContext(UserContext);
+  const navigate = useNavigate();
+  
+  const logoutUser = () => {
+    logout();
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
+  };
+
   return (
-    <div className="Header">
-      <Link className="link" to="/register">Sign up</Link>
-      <Link className="link" to="/login">Login</Link>
-      <Link className="link" to="/profile">Profile</Link>
-    </div>
+    <nav className="Header">
+      <div>
+        {token ? (
+          <>
+            <span onClick={logoutUser}>
+              <Link className="link" to="/">
+                Logout
+              </Link>
+            </span>
+            <span>
+              <Link className="link" to="/profile">
+                Profile
+              </Link>
+            </span>
+          </>
+        ) : (
+          <span>
+            <Link className="link" to="/">
+              Login
+            </Link>
+          </span>
+        )}
+      </div>
+    </nav>
   );
 };
 

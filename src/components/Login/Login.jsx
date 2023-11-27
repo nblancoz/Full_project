@@ -14,7 +14,6 @@ const Login = () => {
   };
   return (
     <div className="login">
-      <p>este es el login</p>
       <Form
         name="basic"
         labelCol={{ span: 8 }}
