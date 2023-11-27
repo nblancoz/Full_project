@@ -6,7 +6,7 @@ import { UserContext } from "../../context/UserContext/UserState";
 const Header = () => {
   const { token, logout } = useContext(UserContext);
   const navigate = useNavigate();
-  
+
   const logoutUser = () => {
     logout();
     setTimeout(() => {
@@ -32,7 +32,7 @@ const Header = () => {
           </>
         ) : (
           <span>
-            <Link className="link" to="/">
+            <Link className="link" to="/login">
               Login
             </Link>
           </span>

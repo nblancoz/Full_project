@@ -2,19 +2,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: auto;
   background-color: beige;
+  padding: 10px;
+  span {
+    font-size: 1.2rem;
+  }
   p {
-    margin-right: 10px;
+    font-size: 1.2rem;
   }
   nav {
     display: flex;
+    font-size: 1.2rem;
     .link {
       margin-right: 20px;
       text-decoration: none;
       color: black;
+      padding: 7px;
+      transition: background-color 0.5s ease;
+      border-radius: 10px;
     }
     .link:hover {
-        background-color: blueviolet;
+      background-color: blueviolet;
+      padding: 7px;
+      border-radius: 10px;
     }
+  }
+  img {
+    width: 4%;
+    height: 4%;
   }
 }
