@@ -1,0 +1,25 @@
+.containerContact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 46vh;
+  margin: 50px;
+  .contactLogos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .contact {
+    height: 40px;
+    border-radius: 50px;
+    margin: 10px;
+  }
+}
+.pContact {
+  display: flex;
+  justify-content: flex-start;
+  height: 2vh;
+  margin: 10px;
+}

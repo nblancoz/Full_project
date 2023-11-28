@@ -31,11 +31,18 @@ const Header = () => {
             </span>
           </>
         ) : (
-          <span>
-            <Link className="link" to="/login">
-              Login
-            </Link>
-          </span>
+          <>
+            <span>
+              <Link className="link" to="/login">
+                Login
+              </Link>
+            </span>
+            <span>
+              <Link className="link" to="/register">
+                Sign Up
+              </Link>
+            </span>
+          </>
         )}
       </div>
     </nav>

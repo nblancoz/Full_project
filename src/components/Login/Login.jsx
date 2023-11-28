@@ -1,13 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.scss";
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button } from "antd";
 
 import { UserContext } from "../../context/UserContext/UserState";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login } = useContext(UserContext);
+  const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
   const onFinish = (values) => {
     login(values);
+    setTimeout(() => {
+      navigate("/profile");
+    }, 2000);
+    setMsg("User Connected Succesfully");
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -34,18 +41,18 @@ const Login = () => {
         <Form.Item
           label="Password"
           name="password"
-          rules={[{ required: true, message: "Please enter your password!" }]}
+          rules={[{ required: true, message: "Please enter your password" }]}
         >
           <Input.Password />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit">
-                Submit
+            Submit
           </Button>
         </Form.Item>
       </Form>
-
+      <p>{msg}</p>
     </div>
   );
 };

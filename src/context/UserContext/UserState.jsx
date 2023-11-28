@@ -3,10 +3,11 @@ import axios from "axios";
 import UserReducer from "./UserReducer";
 
 const token = JSON.parse(localStorage.getItem("token"));
+const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
-  token: token ? token : null,
-  user: null,
+  token: token || null,
+  user: user || null,
 };
 
 const API_URL = "http://localhost:8080";
@@ -24,6 +25,7 @@ export const UserProvider = ({ children }) => {
     });
     if (res.data) {
       localStorage.setItem("token", JSON.stringify(res.data.token));
+      localStorage.setItem("user", JSON.stringify(res.data.user));
     }
   };
 
@@ -52,6 +54,7 @@ export const UserProvider = ({ children }) => {
       payload: res.data,
     });
     if (res.data) {
+      localStorage.removeItem("user");
       localStorage.removeItem("token");
     }
   };
