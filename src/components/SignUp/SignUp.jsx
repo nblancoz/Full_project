@@ -1,25 +1,22 @@
 import React, { useContext, useState } from "react";
-import "./Login.scss";
-import { Form, Input, Button } from "antd";
-
+import "./SignUp.scss";
+import Form from "antd/es/form/Form";
+import Input from "antd/es/input/Input";
+import { Button } from "antd";
 import { UserContext } from "../../context/UserContext/UserState";
-import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-  const { login } = useContext(UserContext);
+const SignUp = () => {
+  const { signUp } = useContext(UserContext);
   const [msg, setMsg] = useState("");
-  const navigate = useNavigate();
 
-  const onFinish = (values) => {
-    login(values);
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
-    setMsg("User connected succesfully");
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+  const submit = async (values) => {
+    try {
+      await signUp(values);
+      console.log(values);
+      setMsg("User created sucesfully");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -29,10 +26,16 @@ const Login = () => {
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
+        onFinish={submit}
         autoComplete="off"
       >
+        <Form.Item
+          label="Name"
+          name="name"
+          rules={[{ required: true, message: "Please enter your name" }]}
+        >
+          <Input />
+        </Form.Item>
         <Form.Item
           label="Email"
           name="email"
@@ -60,4 +63,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

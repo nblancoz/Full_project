@@ -38,7 +38,7 @@ const Header = () => {
               </Link>
             </span>
             <span>
-              <Link className="link" to="/register">
+              <Link className="link" to="/signup">
                 Sign Up
               </Link>
             </span>
