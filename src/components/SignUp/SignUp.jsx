@@ -20,7 +20,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="login">
+    <div className="singUp">
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -28,28 +28,32 @@ const SignUp = () => {
         initialValues={{ remember: true }}
         onFinish={submit}
         autoComplete="off"
+        className="form"
       >
         <Form.Item
           label="Name"
           name="name"
           rules={[{ required: true, message: "Please enter your name" }]}
+          className="input"
         >
-          <Input />
+          <Input className="input" />
         </Form.Item>
         <Form.Item
           label="Email"
           name="email"
           rules={[{ required: true, message: "Please enter your email" }]}
+          className="input"
         >
-          <Input />
+          <Input className="input" />
         </Form.Item>
 
         <Form.Item
           label="Password"
           name="password"
           rules={[{ required: true, message: "Please enter your password" }]}
+          className="input"
         >
-          <Input.Password />
+          <Input.Password className="input" />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
