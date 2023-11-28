@@ -8,6 +8,7 @@ import { UserProvider } from "./context/UserContext/UserState";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
             </Routes>
             <Footer />
           </BrowserRouter>
