@@ -60,7 +60,7 @@ const Login = () => {
             </Button>
           </Form.Item>
         </Form>
-        <p>{msg}</p>
+        <p className="msg">{msg}</p>
       </div>
     </>
   );

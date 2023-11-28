@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext/UserState";
 import { useNavigate } from "react-router-dom";
+import "./Profile.scss";
 
 const Profile = () => {
   const { getUserInfo, user } = useContext(UserContext);
@@ -17,9 +18,12 @@ const Profile = () => {
     navigate("/");
   };
   return (
-    <div>
-      <p>Profile {user.name}</p>
-      <button onClick={backToHome}>back to home</button>
+    <div className="profile">
+      <h1 className="title">Hi, {user.name}. Welcome to your profile.</h1>
+      <p className="pOrders">Here you can consult your orders.</p>
+      <button onClick={backToHome} className="button">
+        Continue shopping
+      </button>
     </div>
   );
 };
