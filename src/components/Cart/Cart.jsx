@@ -9,7 +9,8 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const { cart, clearCart } = useContext(ProductContext);
   const { token } = useContext(UserContext);
-  const data = cart.map((product) => product.name);
+  const name = cart.map((product) => product.name);
+  const img = cart.map((product) => product.img);
   return (
     <div className="cartContainer">
       <Divider orientation="left">Cart</Divider>
@@ -34,10 +35,12 @@ const Cart = () => {
           </div>
         }
         bordered
-        dataSource={data}
-        renderItem={(item) => (
+        dataSource={cart}
+        renderItem={(cart) => (
           <List.Item>
-            <Typography.Text mark>Name product:</Typography.Text> {item}
+            <Typography.Text mark>Name product:</Typography.Text> {cart.name}
+            <br />
+            <img src={cart.img} alt="" style={{ maxWidth: "100px" }} />
           </List.Item>
         )}
       />
