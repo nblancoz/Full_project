@@ -1,20 +1,13 @@
 .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    height: 48vh;
-  }
-  
-  .input {
-    width: 300px;
-    margin-bottom: 10px;
-  }
-  
-  h3 {
-    margin: 10px;
-    margin-left: 15px;
-  }
-  
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  height: 48vh;
+}
+
+.input {
+  width: 300px;
+  margin-bottom: 10px;
+}

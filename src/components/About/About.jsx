@@ -6,12 +6,14 @@ const About = () => {
   return (
     <>
       <section className="section">
-        <p>Hi, we are "name", an E-commerce dedicated only to soccer.</p>
-        <p>
+        <h2 className="paragraphAbout">
+          Hi, we are "name", an E-commerce dedicated only to soccer.
+        </h2>
+        <p className="paragraphAbout">
           This website was created by: Nicolás Blanco Zappalá and it's a project
           of React
         </p>
-        <p>Some of our trending products:</p>
+        <p className="paragraphAbout">Some of our trending products:</p>
       </section>
       <div className="about">
         <Carousel autoplay className="carousel">
