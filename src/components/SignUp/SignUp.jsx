@@ -16,7 +16,6 @@ const SignUp = () => {
         return;
       }
       await signUp(values);
-      console.log(values);
       setTimeout(() => {
         navigate("/");
       }, 3000);

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./SubHeader.scss";
 import { ProductContext } from "../../context/ProductContext/ProductState";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import { Badge } from "antd";
 
 const SubHeader = () => {
   const { cart } = useContext(ProductContext);
@@ -23,7 +24,9 @@ const SubHeader = () => {
           Contact
         </Link>
         <Link className="link" to="/cart">
-          <ShoppingCartOutlined />
+          <Badge count={cart.length} size="small">
+            <ShoppingCartOutlined />
+          </Badge>
         </Link>
       </nav>
     </div>

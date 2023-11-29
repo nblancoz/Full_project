@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./Login.scss";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { UserContext } from "../../context/UserContext/UserState";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ const Login = () => {
   const onFinish = (values) => {
     login(values);
     setTimeout(() => {
-      navigate("/");
+      navigate("/profile");
     }, 2000);
     setMsg("User connected succesfully");
   };
@@ -27,7 +27,7 @@ const Login = () => {
       <h3 className="h3Login">
         Hi, welcome to our platform. Please fill the following form to login.
       </h3>
-      <div className="login">
+      <>
         <Form
           name="normal_login"
           className="login-form form"
@@ -72,19 +72,19 @@ const Login = () => {
             />
           </Form.Item>
 
-          <Form.Item className="button">
-            <Button
-              type="primary"
-              htmlType="submit"
-              className="login-form-button"
-            >
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }} className="buttons">
+            <Button type="primary" htmlType="submit" className="custom-button">
               Log in
             </Button>
-            <Link to="/signup">register here</Link>
+            <Button to="/signup">
+              <Link type="link" className="custom-button">
+                Go to register
+              </Link>
+            </Button>
           </Form.Item>
         </Form>
         <p className="msg">{msg}</p>
-      </div>
+      </>
     </>
   );
 };
