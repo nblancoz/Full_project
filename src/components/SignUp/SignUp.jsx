@@ -8,11 +8,18 @@ const SignUp = () => {
   const { signUp } = useContext(UserContext);
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
-
+  const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const submit = async (values) => {
     try {
+      if (!email.test(values.email)) {
+        setMsg("Enter a valid email");
+        return;
+      }
       await signUp(values);
       console.log(values);
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
       setMsg("User created sucesfully");
     } catch (error) {
       console.error(error);
@@ -92,7 +99,6 @@ const SignUp = () => {
             <Button to="/login">
               <Link type="link" className="custom-button">
                 Go to login
-                {navigate("/")}
               </Link>
             </Button>
           </Form.Item>
