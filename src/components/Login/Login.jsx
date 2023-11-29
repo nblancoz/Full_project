@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./Login.scss";
-import { Form, Input, Button } from "antd";
-
+import { Button, Checkbox, Form, Input } from "antd";
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { UserContext } from "../../context/UserContext/UserState";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -25,43 +25,62 @@ const Login = () => {
   return (
     <>
       <h3 className="h3Login">
-        Hi, welcome to our platform. Please fill the following form to login. If
-        you don't have an account click here to
-        <Link id="link" to="/signup">register</Link>
+        Hi, welcome to our platform. Please fill the following form to login.
       </h3>
       <div className="login">
         <Form
-          name="basic"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          initialValues={{ remember: true }}
+          name="normal_login"
+          className="login-form form"
+          initialValues={{
+            remember: true,
+          }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          autoComplete="off"
-          className="form"
         >
           <Form.Item
-            label="Email"
-            name="email"
-            rules={[{ required: true, message: "Please enter your email" }]}
+            name="username"
+            rules={[
+              {
+                required: true,
+                message: "Please input your Username!",
+              },
+            ]}
             className="input"
           >
-            <Input className="input" />
+            <Input
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="Username"
+              className="input"
+            />
           </Form.Item>
-
           <Form.Item
-            label="Password"
             name="password"
-            rules={[{ required: true, message: "Please enter your password" }]}
+            rules={[
+              {
+                required: true,
+                message: "Please input your Password!",
+              },
+            ]}
             className="input"
+            hasFeedback
           >
-            <Input.Password className="input" />
+            <Input
+              prefix={<LockOutlined className="site-form-item-icon" />}
+              type="password"
+              placeholder="Password"
+              className="input"
+            />
           </Form.Item>
 
-          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit" className="button">
-              Submit
+          <Form.Item className="button">
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+            >
+              Log in
             </Button>
+            <Link to="/signup">register here</Link>
           </Form.Item>
         </Form>
         <p className="msg">{msg}</p>

@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
 import "./SignUp.scss";
-import Form from "antd/es/form/Form";
-import Input from "antd/es/input/Input";
-import { Button } from "antd";
 import { UserContext } from "../../context/UserContext/UserState";
+import { Button, Form, Input } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const { signUp } = useContext(UserContext);
   const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
 
   const submit = async (values) => {
     try {
@@ -20,50 +20,86 @@ const SignUp = () => {
   };
 
   return (
-    <div className="singUp">
-      <Form
-        name="basic"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
-        initialValues={{ remember: true }}
-        onFinish={submit}
-        autoComplete="off"
-        className="form"
-      >
-        <Form.Item
-          label="Name"
-          name="name"
-          rules={[{ required: true, message: "Please enter your name" }]}
-          className="input"
+    <>
+      <h3 className="welcome">
+        Welcome! Here you can become a member of "name". Please fill the
+        following form to register.
+      </h3>
+      <div className="singUp">
+        <Form
+          name="basic"
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          initialValues={{ remember: true }}
+          onFinish={submit}
+          autoComplete="off"
+          className="form"
         >
-          <Input className="input" />
-        </Form.Item>
-        <Form.Item
-          label="Email"
-          name="email"
-          rules={[{ required: true, message: "Please enter your email" }]}
-          className="input"
-        >
-          <Input className="input" />
-        </Form.Item>
+          <Form.Item
+            label="Name"
+            name="name"
+            rules={[{ required: true, message: "Please enter your name" }]}
+            className="item"
+          >
+            <Input className="input" />
+          </Form.Item>
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[{ required: true, message: "Please enter your email" }]}
+            className="item"
+          >
+            <Input className="input" />
+          </Form.Item>
 
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: "Please enter your password" }]}
-          className="input"
-        >
-          <Input.Password className="input" />
-        </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: "Please enter your password" }]}
+            className="item"
+            hasFeedback
+          >
+            <Input.Password className="input" />
+          </Form.Item>
+          <Form.Item
+            name="confirmPassword"
+            label="Confirm Password"
+            dependencies={["password"]}
+            hasFeedback
+            className="item"
+            rules={[
+              {
+                required: true,
+                message: "Please confirm your password",
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue("password") === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(new Error("The passwords don't match"));
+                },
+              }),
+            ]}
+          >
+            <Input.Password className="input" />
+          </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
-      <p>{msg}</p>
-    </div>
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }} className="buttons">
+            <Button type="primary" htmlType="submit" className="custom-button">
+              Submit
+            </Button>
+            <Button to="/login">
+              <Link type="link" className="custom-button">
+                Go to login
+                {navigate("/")}
+              </Link>
+            </Button>
+          </Form.Item>
+        </Form>
+        <p>{msg}</p>
+      </div>
+    </>
   );
 };
 

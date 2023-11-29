@@ -4,7 +4,7 @@
   margin-top: 10px;
   justify-content: center;
 }
-.container {
+.containerHome {
   height: auto;
 }
 
@@ -43,13 +43,17 @@
   }
 }
 
-img {
+.homeImg {
   max-width: 100%;
   max-height: 100%;
 }
 
-button {
+.homeButton {
   padding: 5px;
   margin-top: 40px;
   font-size: 1.1rem;
+}
+.h1Home {
+  text-align: center;
+  margin: 10px;
 }
