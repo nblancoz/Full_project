@@ -4,7 +4,7 @@ import "./Home.scss";
 import { Link } from "react-router-dom";
 
 const Products = () => {
-  const { products, getProducts } = useContext(ProductContext);
+  const { products, getProducts, addCart } = useContext(ProductContext);
 
   useEffect(() => {
     getProducts();
@@ -29,7 +29,7 @@ const Products = () => {
                 <h2>{product.name}</h2>
                 <h3>{product.description}</h3>
                 <h3>{product.price}€</h3>
-                <button>Add to cart</button>
+                <button onClick={() => addCart(product)}>Add to cart</button>
               </div>
             </section>
           );
