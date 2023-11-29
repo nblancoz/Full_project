@@ -3,7 +3,7 @@ import "./Login.scss";
 import { Form, Input, Button } from "antd";
 
 import { UserContext } from "../../context/UserContext/UserState";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -24,7 +24,11 @@ const Login = () => {
 
   return (
     <>
-      <h3 className="h3Login">Login:</h3>
+      <h3 className="h3Login">
+        Hi, welcome to our platform. Please fill the following form to login. If
+        you don't have an account click here to
+        <Link id="link" to="/signup">register</Link>
+      </h3>
       <div className="login">
         <Form
           name="basic"

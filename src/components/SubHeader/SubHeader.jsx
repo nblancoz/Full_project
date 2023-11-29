@@ -5,7 +5,7 @@ import { ProductContext } from "../../context/ProductContext/ProductState";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
 const SubHeader = () => {
-  const {cart} = useContext(ProductContext);
+  const { cart } = useContext(ProductContext);
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
