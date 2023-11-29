@@ -11,13 +11,13 @@ const Cart = () => {
   const { token } = useContext(UserContext);
   const data = cart.map((product) => product.name);
   return (
-    <>
+    <div className="cartContainer">
       <Divider orientation="left">Cart</Divider>
       <List
         header={<div>Products</div>}
         footer={
           <div className="container-buttons">
-            <Button onClick={clearCart}>Clear Cart </Button>
+            <Button onClick={clearCart}>Clear Cart</Button>
             {token ? (
               <Button
                 type="primary"
@@ -41,7 +41,7 @@ const Cart = () => {
           </List.Item>
         )}
       />
-    </>
+    </div>
   );
 };
 
