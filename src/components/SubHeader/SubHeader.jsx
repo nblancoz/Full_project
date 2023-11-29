@@ -2,9 +2,10 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./SubHeader.scss";
 import { ProductContext } from "../../context/ProductContext/ProductState";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 
 const SubHeader = () => {
-  const cart = useContext(ProductContext);
+  const {cart} = useContext(ProductContext);
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -22,7 +23,7 @@ const SubHeader = () => {
           Contact
         </Link>
         <Link className="link" to="/cart">
-          Cart
+          <ShoppingCartOutlined />
         </Link>
       </nav>
     </div>

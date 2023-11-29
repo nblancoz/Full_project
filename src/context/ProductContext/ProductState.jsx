@@ -44,7 +44,7 @@ export const ProductProvider = ({ children }) => {
     <ProductContext.Provider
       value={{
         products: state.products,
-        cart:state.cart,
+        cart: state.cart,
         getProducts,
         addCart,
         clearCart,
