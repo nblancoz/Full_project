@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext/UserState";
 
 const Header = () => {
-  const { user, logout } = useContext(UserContext);
+  const { token, logout } = useContext(UserContext);
   const navigate = useNavigate();
 
   const logoutUser = () => {
@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <nav className="Header">
       <div>
-        {user ? (
+        {token ? (
           <>
             <span onClick={logoutUser}>
               <Link className="link" to="/">

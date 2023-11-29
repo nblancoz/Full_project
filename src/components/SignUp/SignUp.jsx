@@ -9,6 +9,7 @@ const SignUp = () => {
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
   const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
   const submit = async (values) => {
     try {
       if (!email.test(values.email)) {

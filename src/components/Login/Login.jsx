@@ -38,18 +38,18 @@ const Login = () => {
           onFinishFailed={onFinishFailed}
         >
           <Form.Item
-            name="username"
+            name="email"
             rules={[
               {
                 required: true,
-                message: "Please input your Username!",
+                message: "Please enter your email",
               },
             ]}
             className="input"
           >
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="Username"
+              placeholder="Email"
               className="input"
             />
           </Form.Item>
@@ -58,7 +58,7 @@ const Login = () => {
             rules={[
               {
                 required: true,
-                message: "Please input your Password!",
+                message: "Please enter your password",
               },
             ]}
             className="input"
