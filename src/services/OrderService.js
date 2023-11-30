@@ -1,20 +1,22 @@
 import axios from "axios";
-import products from "../context/ProductContext/ProductReducer";
 
 const API_URL = "http://localhost:8080/orders";
 
 const createOrder = async (cart) => {
   const token = JSON.parse(localStorage.getItem("token"));
-  const productIds = cart.map((product) => product.id);
+  const ProductId = cart.map((product) => product.id);
   const order = await axios.post(
     API_URL + "/create",
-    { productIds },
+    { ProductId },
     {
       headers: {
         authorization: token,
       },
     }
   );
+  if (order) {
+    return console.log("pedido hecho")
+  }
   return order;
 };
 

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./SubHeader.scss";
-import { ProductContext } from "../../context/ProductContext/ProductState";
+import { ProductContext } from "../../../context/ProductContext/ProductState";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge } from "antd";
 

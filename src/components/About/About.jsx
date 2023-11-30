@@ -7,7 +7,7 @@ const About = () => {
     <>
       <section className="section">
         <h2 className="paragraphAbout">
-          Hi, we are "name", an E-commerce dedicated only to soccer.
+          Hi, we are StrikeGear, an E-commerce dedicated only to soccer.
         </h2>
         <p className="paragraphAbout">
           This website was created by: Nicolás Blanco Zappalá and it's a project

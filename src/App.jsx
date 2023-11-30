@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
-import SubHeader from "./components/SubHeader/SubHeader";
+import SubHeader from "./components/Header/SubHeader/SubHeader";
 import { ProductProvider } from "./context/ProductContext/ProductState";
 import { UserProvider } from "./context/UserContext/UserState";
 import Login from "./components/Login/Login";

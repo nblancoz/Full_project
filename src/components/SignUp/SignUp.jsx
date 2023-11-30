@@ -9,20 +9,22 @@ const SignUp = () => {
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
   const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
+
   const submit = async (values) => {
     try {
       if (!email.test(values.email)) {
         setMsg("Enter a valid email");
         return;
+      } else {
+        await signUp(values);
       }
-      await signUp(values);
+    } catch (error) {
+      console.error(error);
+    } finally {
       setTimeout(() => {
         navigate("/");
       }, 3000);
       setMsg("User created sucesfully");
-    } catch (error) {
-      console.error(error);
     }
   };
 

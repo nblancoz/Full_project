@@ -21,7 +21,7 @@ const Products = () => {
 
   return (
     <div className="containerHome">
-      <h1 className="h1Home">Welcome to "name"!</h1>
+      <h1 className="h1Home">Welcome to StrikeGear!</h1>
       {/* <section className="sort">
         <Link>
           <span>Order Low-High</span>

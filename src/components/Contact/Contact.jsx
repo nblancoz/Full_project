@@ -4,7 +4,7 @@ import "./Contact.scss";
 const Contact = () => {
   return (
     <>
-      <h3 className="pContact">Here you can contact us</h3>
+      <h2 className="pContact">Here you can contact us</h2>
       <div className="containerContact">
         <div className="contactLogos">
           <img className="contact" src="../src/assets/phone-logo.avif" alt="" />
