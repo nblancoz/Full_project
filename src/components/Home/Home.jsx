@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../../context/ProductContext/ProductState";
 import "./Home.scss";
-import { Link } from "react-router-dom";
+import { LikeOutlined } from "@ant-design/icons";
 
 const Products = () => {
   const { products, getProducts, addCart } = useContext(ProductContext);
@@ -15,7 +15,11 @@ const Products = () => {
     addCart(product);
     setMsg({
       ...msg,
-      [product.id]: "Added to the cart",
+      [product.id]: (
+        <span>
+          Added to the cart <LikeOutlined />
+        </span>
+      ),
     });
   };
 

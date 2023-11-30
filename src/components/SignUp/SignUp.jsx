@@ -98,14 +98,14 @@ const SignUp = () => {
             <Button type="primary" htmlType="submit" className="custom-button">
               Submit
             </Button>
-            <Button to="/login">
-              <Link type="link" className="custom-button">
+            <Button>
+              <Link to="/login" type="link" className="custom-button">
                 Go to login
               </Link>
             </Button>
           </Form.Item>
         </Form>
-        <p>{msg}</p>
+        <p className="signMsg">{msg}</p>
       </div>
     </>
   );

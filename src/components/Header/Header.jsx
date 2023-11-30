@@ -7,8 +7,8 @@ const Header = () => {
   const { token, logout } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const logoutUser = () => {
-    logout();
+  const logoutUser = async () => {
+    await logout();
     setTimeout(() => {
       navigate("/");
     }, 2000);

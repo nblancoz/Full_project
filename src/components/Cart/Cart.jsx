@@ -9,8 +9,6 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const { cart, clearCart } = useContext(ProductContext);
   const { token } = useContext(UserContext);
-  // const name = cart.map((product) => product.name);
-  // const img = cart.map((product) => product.img);
   const isCartEmpty = cart.length === 0;
 
   return (

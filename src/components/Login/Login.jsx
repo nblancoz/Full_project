@@ -76,8 +76,8 @@ const Login = () => {
             <Button type="primary" htmlType="submit" className="custom-button">
               Log in
             </Button>
-            <Button to="/signup">
-              <Link type="link" className="custom-button">
+            <Button>
+              <Link to="/signup" type="link" className="custom-button">
                 Go to register
               </Link>
             </Button>
