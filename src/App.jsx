@@ -19,8 +19,10 @@ function App() {
       <UserProvider>
         <ProductProvider>
           <BrowserRouter>
-            <Header />
-            <SubHeader />
+            <div className="headers">
+              <Header />
+              <SubHeader />
+            </div>
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />

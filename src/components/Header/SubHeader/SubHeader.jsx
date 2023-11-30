@@ -12,7 +12,7 @@ const SubHeader = () => {
   }, [cart]);
   return (
     <div className="SubHeader">
-      <img src="../src/assets/icon.png" alt="" />
+      <img className="logo" src="../src/assets/icon.png" alt="" />
       <nav>
         <Link className="link" to="/">
           Home
