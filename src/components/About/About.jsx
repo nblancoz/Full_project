@@ -7,11 +7,11 @@ const About = () => {
     <>
       <section className="section">
         <h2 className="paragraphAbout">
-          Hi, we are StrikeGear, an E-commerce dedicated only to soccer.
+          Hi, we are StrikeGear, an E-commerce dedicated to soccer fans.
         </h2>
         <p className="paragraphAbout">
           This website was created by: Nicolás Blanco Zappalá and it's a project
-          of React
+          made using React, React Vite, NPM, JavaScript, AntDesign and Sass.
         </p>
         <p className="paragraphAbout">Some of our trending products:</p>
       </section>

@@ -17,7 +17,7 @@ const Profile = () => {
   }
 
   const backToHome = async () => {
-    navigate("/");
+    await navigate("/");
   };
   return (
     <div className="profile">

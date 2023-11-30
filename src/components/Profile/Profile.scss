@@ -1,6 +1,7 @@
 .profile {
   margin: 20px;
-  height: 55vh;
+  min-height: 55vh;
+  overflow: auto;
 }
 
 .button {

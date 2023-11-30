@@ -20,20 +20,14 @@ const Products = () => {
     sorted.sort((a, b) => {
       const priceA = a.price;
       const priceB = b.price;
-
       if (sortOrder === "asc") {
         return priceA - priceB;
       } else {
         return priceB - priceA;
       }
     });
-
     setSortedProducts(sorted);
   }, [products, sortOrder]);
-
-  const toggleSortOrder = () => {
-    setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
-  };
 
   const handleSort = (order) => {
     setSortOrder(order);
