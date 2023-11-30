@@ -33,7 +33,7 @@ const Cart = () => {
                       Create Order
                     </Button>
                   ) : (
-                    <Link to="/login">Go to login to shops</Link>
+                    <Link to="/login">First login</Link>
                   )}
                 </>
               )}
