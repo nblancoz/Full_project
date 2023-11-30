@@ -7,9 +7,37 @@ const Products = () => {
   const { products, getProducts, addCart } = useContext(ProductContext);
   const [msg, setMsg] = useState({});
 
+  const [sortedProducts, setSortedProducts] = useState([]);
+  const [sortOrder, setSortOrder] = useState("asc");
+
   useEffect(() => {
     getProducts();
   }, []);
+
+  useEffect(() => {
+    const sorted = [...products];
+
+    sorted.sort((a, b) => {
+      const priceA = a.price;
+      const priceB = b.price;
+
+      if (sortOrder === "asc") {
+        return priceA - priceB;
+      } else {
+        return priceB - priceA;
+      }
+    });
+
+    setSortedProducts(sorted);
+  }, [products, sortOrder]);
+
+  const toggleSortOrder = () => {
+    setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
+  };
+
+  const handleSort = (order) => {
+    setSortOrder(order);
+  };
 
   const addToCart = (product) => {
     addCart(product);
@@ -26,16 +54,16 @@ const Products = () => {
   return (
     <div className="containerHome">
       <h1 className="h1Home">Welcome to StrikeGear!</h1>
-      {/* <section className="sort">
-        <Link>
-          <span>Order Low-High</span>
-        </Link>
-        <Link>
-          <span>Order High-Low</span>
-        </Link>
-      </section> */}
+      <section className="sort">
+        <button className="orderButtons" onClick={() => handleSort("asc")}>
+          <span>Order Price Low-High</span>
+        </button>
+        <button className="orderButtons" onClick={() => handleSort("desc")}>
+          <span>Order Price High-Low</span>
+        </button>
+      </section>
       <div className="products">
-        {products.map((product) => {
+        {sortedProducts.map((product) => {
           return (
             <section className="cardContainer">
               <div className="card" key={product.id}>
