@@ -64,7 +64,7 @@ const Login = () => {
             className="input"
             hasFeedback
           >
-            <Input
+            <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               placeholder="Password"
