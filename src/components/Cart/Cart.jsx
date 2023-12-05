@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Button, Divider, List, Typography } from "antd";
+import { Button, Divider, List, Typography, notification } from "antd";
 import { ProductContext } from "../../context/ProductContext/ProductState";
 import "./Cart.scss";
 import orderService from "../../services/OrderService";
@@ -11,6 +11,19 @@ const Cart = () => {
   const { token } = useContext(UserContext);
   const isCartEmpty = cart.length === 0;
 
+  const createOrder=async()=>{
+    const order= await orderService.createOrder(cart);
+    if (order) {
+      clearCart();
+      notification.success({
+        message:"Order placed successfully"
+      })
+    } else {
+      notification.error({
+        message:"An error has ocurred"
+      })
+    }
+  }
   return (
     <div className="allContainer">
       <div className="cartContainer">
@@ -25,10 +38,7 @@ const Cart = () => {
                   {token ? (
                     <Button
                       type="primary"
-                      onClick={() => {
-                        orderService.createOrder(cart);
-                        clearCart();
-                      }}
+                      onClick={createOrder}
                     >
                       Create Order
                     </Button>

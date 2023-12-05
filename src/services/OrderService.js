@@ -14,11 +14,7 @@ const createOrder = async (cart) => {
       },
     }
   );
-  if (order) {
-    return console.log("Order placed successfully");
-  } else {
-    console.log("An error has ocurred");
-  }
+  
   return order;
 };
 
